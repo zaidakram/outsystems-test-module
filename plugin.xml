@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="bottar-ai"
+        version="1.0">
+
+  <name>Bottar AI</name>
+  <description>Cordova Plugin for bottar.ai</description>
+  <license>MIT</license>
+  <author>Zaid</author>
+
+  <engines>
+    <engine name="cordova" version=">=9.0.0"/>
+  </engines>
+
+  <js-module src="src/index.js" name="bottar">
+    <merges target="cordova.plugins.bottar" />
+  </js-module>
+</plugin>
+
+
