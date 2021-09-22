@@ -13,9 +13,12 @@
     <engine name="cordova" version=">=9.0.0"/>
   </engines>
 
-  <js-module src="src/index.js" name="bottar">
+  <js-module src="dist/main.js" name="bottar">
     <merges target="cordova.plugins.bottar" />
   </js-module>
+
+  <hook type="after_plugin_add" src="scripts/setup-bottar.sh"></hook>
+
 </plugin>
 
 

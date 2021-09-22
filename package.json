@@ -7,9 +7,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "cxi-message-broker-client": "file:../cxi-message-broker-client",
-    "express": "^4.17.1",
-    "requirejs": "^2.3.6"
+    "cxi-message-broker-client": "file:../cxi-message-broker-client"
   },
   "devDependencies": {
     "webpack": "^5.53.0",
