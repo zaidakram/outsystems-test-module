@@ -225,6 +225,21 @@ const ui = `<div id="bottar-ui">
       object-fit: cover;
       object-position: center center;
     }
+
+    .end-call-button {
+      color: white;
+      background: #d9381e;
+      position: absolute;
+      bottom: 6%;
+      right: calc(50% - 35px);
+      border-radius: 50%;
+      border: 1px solid red;
+    }
+
+    .end-call-button i {
+      padding: 15px;
+      font-size: 30px;
+    }
   </style>
   
   <div id="frame">
@@ -251,6 +266,9 @@ const ui = `<div id="bottar-ui">
   <div id="cxi-media-container">
     <div id="videoremote0"></div>
     <div id="videolocal"></div>
+    <button class="end-call-button">
+      <i class="fa fa-phone" aria-hidden="true"></i>
+    </button>
   </div>
 
 

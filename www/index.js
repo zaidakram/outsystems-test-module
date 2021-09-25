@@ -7,13 +7,13 @@ document.addEventListener("websocket:initReady", function () {
   CXI.initWebsocket('Zaid');
 });
 
-document.addEventListener('websocket:registartionSuccess', function() {
+document.addEventListener('websocket:registartionSuccess', function () {
   console.log('websocket:registartionSuccess fired...');
   CXI.initWebRtc();
 });
 
 // ALL the UI stuff could've been a small react app.
-CXI.onMessageReceive(function(message) {
+CXI.onMessageReceive(function (message) {
   let newMessage;
   try {
     // Handle case where it sends html.
@@ -49,11 +49,11 @@ function sendMessage() {
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 };
 
-$('body').on('click', '.submit', function() {
+$('body').on('click', '.submit', function () {
   sendMessage();
 });
 
-$(window).on('keydown', function(e) {
+$(window).on('keydown', function (e) {
   if (e.which == 13) {
     sendMessage();
     return false;
@@ -93,7 +93,7 @@ document.addEventListener(window.bottar.config.renderEvent, function () {
 document.addEventListener('webrtc:ready', function () {
   $('.actions').show();
 
-  $('body').on('click', '.actions', function() {
+  $('body').on('click', '.actions', function () {
     window.plugins.k.webrtc.permission.request(
       (result) => {
         console.log('Permissions.........', result);
@@ -115,7 +115,13 @@ document.addEventListener('webrtc:ready', function () {
   });
 });
 
-document.addEventListener('webrtc:callAccepted', function() {
+$('body').on('click', '.end-call-button', function () {
+  CXI.webRtc.endCall(CXI.session, CXI.interaction, CXI.interaction);
+  $('#cxi-media-container').hide();
+  $('#frame').show();
+});
+
+document.addEventListener('webrtc:mediaSessionStarted', function() {
   $('#cxi-media-container').show();
   $('#frame').hide();
 })

@@ -138,6 +138,7 @@ class WebRtcMessageBrokerIntercepter {
   }
   
   mediaSessionStarted(interactionId, sessionId, mediaConstraints) {
+    document.dispatchEvent(new Event('webrtc:mediaSessionStarted'));
     console.warn('mediaSessionStarted', interactionId, mediaConstraints, sessionId);
   }
 
@@ -166,6 +167,7 @@ require(['cxi-message-broker-client/message-broker/client/websocket/StandardWSMe
   }
   document.dispatchEvent(new Event('websocket:initReady'));
 });
+
 require(['cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient'], function (data) {
   CXI.initWebRtc = function() {
     CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(CXI.webSocket, new WebRtcMessageBrokerIntercepter(), false);

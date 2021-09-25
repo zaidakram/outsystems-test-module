@@ -179,6 +179,7 @@ class WebRtcMessageBrokerIntercepter {
   }
   
   mediaSessionStarted(interactionId, sessionId, mediaConstraints) {
+    document.dispatchEvent(new Event('webrtc:mediaSessionStarted'));
     console.warn('mediaSessionStarted', interactionId, mediaConstraints, sessionId);
   }
 
@@ -207,6 +208,7 @@ __webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-brok
   }
   document.dispatchEvent(new Event('websocket:initReady'));
 }).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
+
 __webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-broker-webrtc_client_StandardWebRTCMessageBrokerClient_js").then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient */ "../cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js")]; (function (data) {
   CXI.initWebRtc = function() {
     CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(CXI.webSocket, new WebRtcMessageBrokerIntercepter(), false);
@@ -456,6 +458,21 @@ const ui = `<div id="bottar-ui">
       object-fit: cover;
       object-position: center center;
     }
+
+    .end-call-button {
+      color: white;
+      background: #d9381e;
+      position: absolute;
+      bottom: 6%;
+      right: calc(50% - 35px);
+      border-radius: 50%;
+      border: 1px solid red;
+    }
+
+    .end-call-button i {
+      padding: 15px;
+      font-size: 30px;
+    }
   </style>
   
   <div id="frame">
@@ -482,6 +499,9 @@ const ui = `<div id="bottar-ui">
   <div id="cxi-media-container">
     <div id="videoremote0"></div>
     <div id="videolocal"></div>
+    <button class="end-call-button">
+      <i class="fa fa-phone" aria-hidden="true"></i>
+    </button>
   </div>
 
 
@@ -4531,13 +4551,13 @@ document.addEventListener("websocket:initReady", function () {
   _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].initWebsocket('Zaid');
 });
 
-document.addEventListener('websocket:registartionSuccess', function() {
+document.addEventListener('websocket:registartionSuccess', function () {
   console.log('websocket:registartionSuccess fired...');
   _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].initWebRtc();
 });
 
 // ALL the UI stuff could've been a small react app.
-_cxi__WEBPACK_IMPORTED_MODULE_1__["default"].onMessageReceive(function(message) {
+_cxi__WEBPACK_IMPORTED_MODULE_1__["default"].onMessageReceive(function (message) {
   let newMessage;
   try {
     // Handle case where it sends html.
@@ -4573,11 +4593,11 @@ function sendMessage() {
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 };
 
-$('body').on('click', '.submit', function() {
+$('body').on('click', '.submit', function () {
   sendMessage();
 });
 
-$(window).on('keydown', function(e) {
+$(window).on('keydown', function (e) {
   if (e.which == 13) {
     sendMessage();
     return false;
@@ -4617,7 +4637,7 @@ document.addEventListener(window.bottar.config.renderEvent, function () {
 document.addEventListener('webrtc:ready', function () {
   $('.actions').show();
 
-  $('body').on('click', '.actions', function() {
+  $('body').on('click', '.actions', function () {
     window.plugins.k.webrtc.permission.request(
       (result) => {
         console.log('Permissions.........', result);
@@ -4639,7 +4659,14 @@ document.addEventListener('webrtc:ready', function () {
   });
 });
 
-document.addEventListener('webrtc:callAccepted', function() {
+$('body').on('click', '.end-call-button', function () {
+  _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].webRtc.endCall(_cxi__WEBPACK_IMPORTED_MODULE_1__["default"].session, _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction, _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction);
+  $('#cxi-media-container').hide();
+  $('#frame').show();
+  return true;
+});
+
+document.addEventListener('webrtc:mediaSessionStarted', function() {
   $('#cxi-media-container').show();
   $('#frame').hide();
 })
