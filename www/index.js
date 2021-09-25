@@ -4,8 +4,12 @@ import CXI from './cxi';
 import ui from './ui';
 
 document.addEventListener("websocket:initReady", function () {
-  console.log('initialized websocket');
   CXI.initWebsocket('Zaid');
+});
+
+document.addEventListener('websocket:registartionSuccess', function() {
+  console.log('websocket:registartionSuccess fired...');
+  CXI.initWebRtc();
 });
 
 // ALL the UI stuff could've been a small react app.
@@ -25,9 +29,6 @@ CXI.onMessageReceive(function(message) {
 function sendMessage() {
   let message = $(".message-input input").val();
   if($.trim(message) == '' || CXI.session === undefined || CXI.interaction === undefined) {
-    console.log('session', CXI.session);
-    console.log('interaction', CXI.interaction);
-    console.error('error sending message');
     return false;
   }
 
@@ -40,7 +41,6 @@ function sendMessage() {
     sentDateTime: new Date(),
     type: "text"
   };
-  console.log('session id interaction id', CXI.session, CXI.interaction);
 
   CXI.webSocket.sendMessage(CXI.session, chatMessage);
 
@@ -60,7 +60,6 @@ $(window).on('keydown', function(e) {
   }
 });
 
-// TODO: Start video chat in UI...
 document.addEventListener('websocket:agentConnected', function () {
   CXI.webSocket.registerNewReqToBroker({
     channel: "webchat",
@@ -83,8 +82,40 @@ document.addEventListener('websocket:agentConnected', function () {
   });
 });
 
+// Entry-point
+// Render the chat app...
 document.addEventListener(window.bottar.config.renderEvent, function () {
   document.getElementById('main').innerHTML = ui;
 
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 });
+
+document.addEventListener('webrtc:ready', function () {
+  $('.actions').show();
+
+  $('body').on('click', '.actions', function() {
+    window.plugins.k.webrtc.permission.request(
+      (result) => {
+        console.log('Permissions.........', result);
+        if (result.haveRequiredPermission) {
+          const options = {
+            mediaConstraints: {
+              audio: true,
+              video: true,
+              record: false
+            }
+          };
+
+          CXI.webRtc.initiateCall(CXI.session, CXI.interaction, CXI.interaction, options);
+        }
+      },
+      (result) => {console.log('Permissions denied...')}
+    );
+
+  });
+});
+
+document.addEventListener('webrtc:callAccepted', function() {
+  $('#cxi-media-container').show();
+  $('#frame').hide();
+})

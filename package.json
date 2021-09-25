@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "cordova-plugin-k-webrtc-permission": "^1.0.0",
     "cxi-message-broker-client": "file:../cxi-message-broker-client"
   },
   "devDependencies": {

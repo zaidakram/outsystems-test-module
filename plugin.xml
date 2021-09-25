@@ -16,9 +16,29 @@
   <js-module src="dist/main.js" name="bottar">
     <merges target="cordova.plugins.bottar" />
   </js-module>
+  
+  <js-module src="www/permissions.js" name="permission">
+    <clobbers target="window.plugins.k.webrtc.permission" />
+  </js-module>
 
   <hook type="after_plugin_add" src="scripts/setup-bottar.sh"></hook>
 
+  <!-- Android -->
+  <platform name="android">
+    <source-file src="src/android/KwebRTCPermission.java" target-dir="src/in/co/indusnet/cordova/plugins/webrtc/permission" />
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.CAMERA" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+      <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    </config-file>
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="KwebRTCPermission">
+        <param name="android-package" value="in.co.indusnet.cordova.plugins.webrtc.permission.KwebRTCPermission" />
+      </feature>
+    </config-file>
+  </platform>
+  
 </plugin>
 
 

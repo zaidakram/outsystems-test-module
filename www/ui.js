@@ -60,17 +60,18 @@ const ui = `<div id="bottar-ui">
       float: left;
       margin-left: 20px;
     }
-    #frame .content .contact-profile .social-media {
+    #frame .content .contact-profile .actions {
+      display: none;
       float: right;
     }
-    #frame .content .contact-profile .social-media i {
+    #frame .content .contact-profile .actions i {
       margin-left: 14px;
       cursor: pointer;
     }
-    #frame .content .contact-profile .social-media i:nth-last-child(1) {
+    #frame .content .contact-profile .actions i:nth-last-child(1) {
       margin-right: 20px;
     }
-    #frame .content .contact-profile .social-media i:hover {
+    #frame .content .contact-profile .actions i:hover {
       color: #435f7a;
     }
     #frame .content .messages {
@@ -200,16 +201,38 @@ const ui = `<div id="bottar-ui">
     #frame .content .message-input .wrap button:focus {
       outline: none;
     }
+
+    #cxi-media-container {
+      display: none;
+    }
+
+    #videoremote0 {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      text-align: center;
+    }
+
+    #videolocal {
+      width: 30%;
+      height: 25%;
+      position: absolute;
+      top: 3%;
+      right: 6%;
+    }
+
+    video {
+      object-fit: cover;
+      object-position: center center;
+    }
   </style>
   
   <div id="frame">
     <div class="content">
       <div class="contact-profile">
         <p class="agent">Agent 007</p>
-        <div class="social-media">
-          <i id="start-chat" class="fa fa-facebook" aria-hidden="true"></i>
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-           <i class="fa fa-instagram" aria-hidden="true"></i>
+        <div class="actions">
+          <i class="fa fa-video-camera" aria-hidden="true"></i>
         </div>
       </div>
       <div class="messages">
@@ -225,12 +248,16 @@ const ui = `<div id="bottar-ui">
     </div>
   </div>
 
+  <div id="cxi-media-container">
+    <div id="videoremote0"></div>
+    <div id="videolocal"></div>
+  </div>
+
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.typekit.net/hoy3lrg.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>

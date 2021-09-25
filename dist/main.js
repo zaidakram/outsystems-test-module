@@ -2,9 +2,9 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/bottar-config.js":
+/***/ "./www/bottar-config.js":
 /*!******************************!*\
-  !*** ./src/bottar-config.js ***!
+  !*** ./www/bottar-config.js ***!
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -29,9 +29,9 @@ if (!window.bottar) {
 
 /***/ }),
 
-/***/ "./src/cxi.js":
+/***/ "./www/cxi.js":
 /*!********************!*\
-  !*** ./src/cxi.js ***!
+  !*** ./www/cxi.js ***!
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -51,6 +51,7 @@ const CXI = {
 
 class WebChatMessageBrokerIntercepter {
   onRegisterationSuccessfull(registerationKey, interactionId, sessionId, saveInGarageOnly) {
+    document.dispatchEvent(new Event('websocket:registartionSuccess'));
     console.warn('onRegisterationSuccessfull', registerationKey, interactionId, sessionId, saveInGarageOnly);
     CXI.session = sessionId;
     CXI.interaction = interactionId;
@@ -95,7 +96,6 @@ class WebChatMessageBrokerIntercepter {
     console.warn('onSeakMessage', chatMessage);
   }
 
-
   onSessionClose(data) {
     const messageNode = document.getElementById("messageList");
     while (messageNode.lastElementChild) {
@@ -133,7 +133,6 @@ class WebChatMessageBrokerIntercepter {
     console.warn('onSessionTransferAccepted', sessionId, agentId);
   }
 
-
   onSessionTransferFailed(sessionId, failedReason) {
     console.warn('onSessionTransferFailed', sessionId, failedReason);
   }
@@ -142,11 +141,9 @@ class WebChatMessageBrokerIntercepter {
     console.warn('onSessionTransferCompleate', sessionId, transferTo, transferToDetails);
   }
 
-
   escalateToAgent(sessionId, customerPayload) {
     console.warn('escalateToAgent', sessionId, customerPayload);
   }
-
 
   onSuperVisorReQueueSuccess(sessionId, queueName) {
     console.warn('onSuperVisorReQueueSuccess', sessionId, queueName);
@@ -180,6 +177,7 @@ class WebRtcMessageBrokerIntercepter {
     console.warn('onSessionClosed', CXI.session, sessionId);
     CXI.webRtc.endCall(sessionId, CXI.interaction, CXI.interaction);
   }
+  
   mediaSessionStarted(interactionId, sessionId, mediaConstraints) {
     console.warn('mediaSessionStarted', interactionId, mediaConstraints, sessionId);
   }
@@ -187,6 +185,7 @@ class WebRtcMessageBrokerIntercepter {
   onLocalStreamStarted() {
     console.warn('onLocalStreamStarted');
   }
+
   onLocalStreamDisconnected() {
     console.warn('onLocalStreamDisconnected');
   }
@@ -210,7 +209,8 @@ __webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-brok
 }).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
 __webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-broker-webrtc_client_StandardWebRTCMessageBrokerClient_js").then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient */ "../cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js")]; (function (data) {
   CXI.initWebRtc = function() {
-    CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(webSocket, new WebRtcMessageBrokerIntercepter(), false);
+    CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(CXI.webSocket, new WebRtcMessageBrokerIntercepter(), false);
+    document.dispatchEvent(new Event('webrtc:ready'));
   }
 }).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
 
@@ -219,9 +219,9 @@ __webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-brok
 
 /***/ }),
 
-/***/ "./src/ui.js":
+/***/ "./www/ui.js":
 /*!*******************!*\
-  !*** ./src/ui.js ***!
+  !*** ./www/ui.js ***!
   \*******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -291,17 +291,18 @@ const ui = `<div id="bottar-ui">
       float: left;
       margin-left: 20px;
     }
-    #frame .content .contact-profile .social-media {
+    #frame .content .contact-profile .actions {
+      display: none;
       float: right;
     }
-    #frame .content .contact-profile .social-media i {
+    #frame .content .contact-profile .actions i {
       margin-left: 14px;
       cursor: pointer;
     }
-    #frame .content .contact-profile .social-media i:nth-last-child(1) {
+    #frame .content .contact-profile .actions i:nth-last-child(1) {
       margin-right: 20px;
     }
-    #frame .content .contact-profile .social-media i:hover {
+    #frame .content .contact-profile .actions i:hover {
       color: #435f7a;
     }
     #frame .content .messages {
@@ -431,16 +432,38 @@ const ui = `<div id="bottar-ui">
     #frame .content .message-input .wrap button:focus {
       outline: none;
     }
+
+    #cxi-media-container {
+      display: none;
+    }
+
+    #videoremote0 {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      text-align: center;
+    }
+
+    #videolocal {
+      width: 30%;
+      height: 25%;
+      position: absolute;
+      top: 3%;
+      right: 6%;
+    }
+
+    video {
+      object-fit: cover;
+      object-position: center center;
+    }
   </style>
   
   <div id="frame">
     <div class="content">
       <div class="contact-profile">
         <p class="agent">Agent 007</p>
-        <div class="social-media">
-          <i id="start-chat" class="fa fa-facebook" aria-hidden="true"></i>
-          <i class="fa fa-twitter" aria-hidden="true"></i>
-           <i class="fa fa-instagram" aria-hidden="true"></i>
+        <div class="actions">
+          <i class="fa fa-video-camera" aria-hidden="true"></i>
         </div>
       </div>
       <div class="messages">
@@ -456,12 +479,16 @@ const ui = `<div id="bottar-ui">
     </div>
   </div>
 
+  <div id="cxi-media-container">
+    <div id="videoremote0"></div>
+    <div id="videolocal"></div>
+  </div>
+
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.typekit.net/hoy3lrg.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -4489,21 +4516,24 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 /*!**********************!*\
-  !*** ./src/index.js ***!
+  !*** ./www/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bottar_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bottar-config */ "./src/bottar-config.js");
-/* harmony import */ var _cxi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cxi */ "./src/cxi.js");
-/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui */ "./src/ui.js");
+/* harmony import */ var _bottar_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bottar-config */ "./www/bottar-config.js");
+/* harmony import */ var _cxi__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./cxi */ "./www/cxi.js");
+/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ui */ "./www/ui.js");
 // Requireing this file just to load configs on window.bottar
 
 
 
 
-
 document.addEventListener("websocket:initReady", function () {
-  console.log('initialized websocket');
   _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].initWebsocket('Zaid');
+});
+
+document.addEventListener('websocket:registartionSuccess', function() {
+  console.log('websocket:registartionSuccess fired...');
+  _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].initWebRtc();
 });
 
 // ALL the UI stuff could've been a small react app.
@@ -4523,9 +4553,6 @@ _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].onMessageReceive(function(message) 
 function sendMessage() {
   let message = $(".message-input input").val();
   if($.trim(message) == '' || _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].session === undefined || _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction === undefined) {
-    console.log('session', _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].session);
-    console.log('interaction', _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction);
-    console.error('error sending message');
     return false;
   }
 
@@ -4538,7 +4565,6 @@ function sendMessage() {
     sentDateTime: new Date(),
     type: "text"
   };
-  console.log('session id interaction id', _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].session, _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction);
 
   _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].webSocket.sendMessage(_cxi__WEBPACK_IMPORTED_MODULE_1__["default"].session, chatMessage);
 
@@ -4546,7 +4572,6 @@ function sendMessage() {
   $('.message-input input').val(null);
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 };
-
 
 $('body').on('click', '.submit', function() {
   sendMessage();
@@ -4559,8 +4584,6 @@ $(window).on('keydown', function(e) {
   }
 });
 
-// TODO: Start video chat...
-// $('body').on("click", "#start-chat", function () {
 document.addEventListener('websocket:agentConnected', function () {
   _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].webSocket.registerNewReqToBroker({
     channel: "webchat",
@@ -4571,7 +4594,7 @@ document.addEventListener('websocket:agentConnected', function () {
     chatTranscript: [],
     customerEmail: "hello@zaidakram.com",
     customerFirstName: "Zaid",
-    dynamicFields: [{ Country: "" }, { 'Page Name': "DefaultPage" }, { accountId: "DefaultPage" }, { 'First Name': "Customer" }, { 'Last Name': "" }, { Email: "" }],
+    dynamicFields: [{ Country: "" }, { 'Page Name': "DefaultPage" }, { accountId: "DefaultPage" }, { 'First Name': "Zaid" }, { 'Last Name': "Akram" }, { Email: "zaid@amrood.de" }],
     feedBack: [],
     interactionSubType: "WEBCHAT",
     interactionType: "CHAT",
@@ -4583,11 +4606,43 @@ document.addEventListener('websocket:agentConnected', function () {
   });
 });
 
+// Entry-point
+// Render the chat app...
 document.addEventListener(window.bottar.config.renderEvent, function () {
   document.getElementById('main').innerHTML = _ui__WEBPACK_IMPORTED_MODULE_2__["default"];
 
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 });
+
+document.addEventListener('webrtc:ready', function () {
+  $('.actions').show();
+
+  $('body').on('click', '.actions', function() {
+    window.plugins.k.webrtc.permission.request(
+      (result) => {
+        console.log('Permissions.........', result);
+        if (result.haveRequiredPermission) {
+          const options = {
+            mediaConstraints: {
+              audio: true,
+              video: true,
+              record: false
+            }
+          };
+
+          _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].webRtc.initiateCall(_cxi__WEBPACK_IMPORTED_MODULE_1__["default"].session, _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction, _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction, options);
+        }
+      },
+      (result) => {console.log('Permissions denied...')}
+    );
+
+  });
+});
+
+document.addEventListener('webrtc:callAccepted', function() {
+  $('#cxi-media-container').show();
+  $('#frame').hide();
+})
 
 })();
 

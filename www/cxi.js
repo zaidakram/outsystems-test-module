@@ -10,6 +10,7 @@ const CXI = {
 
 class WebChatMessageBrokerIntercepter {
   onRegisterationSuccessfull(registerationKey, interactionId, sessionId, saveInGarageOnly) {
+    document.dispatchEvent(new Event('websocket:registartionSuccess'));
     console.warn('onRegisterationSuccessfull', registerationKey, interactionId, sessionId, saveInGarageOnly);
     CXI.session = sessionId;
     CXI.interaction = interactionId;
@@ -54,7 +55,6 @@ class WebChatMessageBrokerIntercepter {
     console.warn('onSeakMessage', chatMessage);
   }
 
-
   onSessionClose(data) {
     const messageNode = document.getElementById("messageList");
     while (messageNode.lastElementChild) {
@@ -92,7 +92,6 @@ class WebChatMessageBrokerIntercepter {
     console.warn('onSessionTransferAccepted', sessionId, agentId);
   }
 
-
   onSessionTransferFailed(sessionId, failedReason) {
     console.warn('onSessionTransferFailed', sessionId, failedReason);
   }
@@ -101,11 +100,9 @@ class WebChatMessageBrokerIntercepter {
     console.warn('onSessionTransferCompleate', sessionId, transferTo, transferToDetails);
   }
 
-
   escalateToAgent(sessionId, customerPayload) {
     console.warn('escalateToAgent', sessionId, customerPayload);
   }
-
 
   onSuperVisorReQueueSuccess(sessionId, queueName) {
     console.warn('onSuperVisorReQueueSuccess', sessionId, queueName);
@@ -139,6 +136,7 @@ class WebRtcMessageBrokerIntercepter {
     console.warn('onSessionClosed', CXI.session, sessionId);
     CXI.webRtc.endCall(sessionId, CXI.interaction, CXI.interaction);
   }
+  
   mediaSessionStarted(interactionId, sessionId, mediaConstraints) {
     console.warn('mediaSessionStarted', interactionId, mediaConstraints, sessionId);
   }
@@ -146,6 +144,7 @@ class WebRtcMessageBrokerIntercepter {
   onLocalStreamStarted() {
     console.warn('onLocalStreamStarted');
   }
+
   onLocalStreamDisconnected() {
     console.warn('onLocalStreamDisconnected');
   }
@@ -169,7 +168,8 @@ require(['cxi-message-broker-client/message-broker/client/websocket/StandardWSMe
 });
 require(['cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient'], function (data) {
   CXI.initWebRtc = function() {
-    CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(webSocket, new WebRtcMessageBrokerIntercepter(), false);
+    CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(CXI.webSocket, new WebRtcMessageBrokerIntercepter(), false);
+    document.dispatchEvent(new Event('webrtc:ready'));
   }
 });
 
