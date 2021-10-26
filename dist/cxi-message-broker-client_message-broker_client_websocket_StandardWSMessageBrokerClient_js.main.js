@@ -1,12 +1,12 @@
 (self["webpackChunkbottar_ai"] = self["webpackChunkbottar_ai"] || []).push([["cxi-message-broker-client_message-broker_client_websocket_StandardWSMessageBrokerClient_js"],{
 
-/***/ "../cxi-message-broker-client/message-broker/client-factory/StandardClientFactory.js":
-/*!*******************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/client-factory/StandardClientFactory.js ***!
-  \*******************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/client-factory/StandardClientFactory.js":
+/*!******************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/client-factory/StandardClientFactory.js ***!
+  \******************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../utils/collections/LinkedList */ "../cxi-message-broker-client/message-broker/utils/collections/LinkedList.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, LinkedList_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../utils/collections/LinkedList */ "./cxi-message-broker-client/message-broker/utils/collections/LinkedList.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, LinkedList_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.StandardClientFactory = void 0;
@@ -53,10 +53,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/client/ClientTypes.js":
-/*!*************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/client/ClientTypes.js ***!
-  \*************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/client/ClientTypes.js":
+/*!************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/client/ClientTypes.js ***!
+  \************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -183,13 +183,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/client/websocket/AbstractWSMessageBrokerClient.js":
-/*!*****************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/client/websocket/AbstractWSMessageBrokerClient.js ***!
-  \*****************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/client/websocket/AbstractWSMessageBrokerClient.js":
+/*!****************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/client/websocket/AbstractWSMessageBrokerClient.js ***!
+  \****************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../ClientTypes */ "../cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ../../logger/LoggerFactory */ "../cxi-message-broker-client/message-broker/logger/LoggerFactory.js"), __webpack_require__(/*! ../../client-factory/StandardClientFactory */ "../cxi-message-broker-client/message-broker/client-factory/StandardClientFactory.js"), __webpack_require__(/*! ./BrokerMessage */ "../cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js"), __webpack_require__(/*! ../../utils/NetworkUtils */ "../cxi-message-broker-client/message-broker/utils/NetworkUtils.js"), __webpack_require__(/*! ./../../utils/ClientUtils */ "../cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1, LoggerFactory_1, StandardClientFactory_1, BrokerMessage_1, NetworkUtils_1, ClientUtils_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../ClientTypes */ "./cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ../../logger/LoggerFactory */ "./cxi-message-broker-client/message-broker/logger/LoggerFactory.js"), __webpack_require__(/*! ../../client-factory/StandardClientFactory */ "./cxi-message-broker-client/message-broker/client-factory/StandardClientFactory.js"), __webpack_require__(/*! ./BrokerMessage */ "./cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js"), __webpack_require__(/*! ../../utils/NetworkUtils */ "./cxi-message-broker-client/message-broker/utils/NetworkUtils.js"), __webpack_require__(/*! ./../../utils/ClientUtils */ "./cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1, LoggerFactory_1, StandardClientFactory_1, BrokerMessage_1, NetworkUtils_1, ClientUtils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.AbstractWSMessageBrokerClient = void 0;
@@ -788,13 +788,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js":
-/*!*************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js ***!
-  \*************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js":
+/*!************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js ***!
+  \************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../../utils/ClientUtils */ "../cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientUtils_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../../utils/ClientUtils */ "./cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientUtils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.BrokerMessage = void 0;
@@ -834,13 +834,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient.js":
-/*!*****************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient.js ***!
-  \*****************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient.js":
+/*!****************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient.js ***!
+  \****************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./AbstractWSMessageBrokerClient */ "../cxi-message-broker-client/message-broker/client/websocket/AbstractWSMessageBrokerClient.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, AbstractWSMessageBrokerClient_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./AbstractWSMessageBrokerClient */ "./cxi-message-broker-client/message-broker/client/websocket/AbstractWSMessageBrokerClient.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, AbstractWSMessageBrokerClient_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.StanderdWSMessageBrokerClient = void 0;
@@ -856,13 +856,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/logger/Logger.js":
-/*!********************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/logger/Logger.js ***!
-  \********************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/logger/Logger.js":
+/*!*******************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/logger/Logger.js ***!
+  \*******************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../client/ClientTypes */ "../cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ../client/websocket/BrokerMessage */ "../cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1, BrokerMessage_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../client/ClientTypes */ "./cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ../client/websocket/BrokerMessage */ "./cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1, BrokerMessage_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.LoggerType = exports.Logger = void 0;
@@ -956,13 +956,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/logger/LoggerFactory.js":
-/*!***************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/logger/LoggerFactory.js ***!
-  \***************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/logger/LoggerFactory.js":
+/*!**************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/logger/LoggerFactory.js ***!
+  \**************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./Logger */ "../cxi-message-broker-client/message-broker/logger/Logger.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, Logger_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./Logger */ "./cxi-message-broker-client/message-broker/logger/Logger.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, Logger_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.LoggerFactory = void 0;
@@ -980,13 +980,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/utils/ClientUtils.js":
-/*!************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/utils/ClientUtils.js ***!
-  \************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/utils/ClientUtils.js":
+/*!***********************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/utils/ClientUtils.js ***!
+  \***********************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../client/ClientTypes */ "../cxi-message-broker-client/message-broker/client/ClientTypes.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../client/ClientTypes */ "./cxi-message-broker-client/message-broker/client/ClientTypes.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.DS = exports.ClientUtils = void 0;
@@ -1023,10 +1023,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/utils/NetworkUtils.js":
-/*!*************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/utils/NetworkUtils.js ***!
-  \*************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/utils/NetworkUtils.js":
+/*!************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/utils/NetworkUtils.js ***!
+  \************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -1081,13 +1081,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/utils/collections/LinkedList.js":
-/*!***********************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/utils/collections/LinkedList.js ***!
-  \***********************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/utils/collections/LinkedList.js":
+/*!**********************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/utils/collections/LinkedList.js ***!
+  \**********************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../ClientUtils */ "../cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientUtils_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../ClientUtils */ "./cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientUtils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.LinkedList = void 0;

@@ -2,527 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./www/bottar-config.js":
-/*!******************************!*\
-  !*** ./www/bottar-config.js ***!
-  \******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-const config = {
-  renderEvent: 'bottar:render',
-  color: '...',
-  etc: '...'
-}
-
-if (!window.bottar) {
-  window.bottar = {
-    config : config
-  }
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (config);
-
-
-/***/ }),
-
-/***/ "./www/cxi.js":
-/*!********************!*\
-  !*** ./www/cxi.js ***!
-  \********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-let _onMessageReceiveCallback = null;
-
-const CXI = {
-  onMessageReceive: function(callback) {
-    _onMessageReceiveCallback = callback;
-  },
-  session: undefined,
-  interaction: undefined
-};
-
-class WebChatMessageBrokerIntercepter {
-  onRegisterationSuccessfull(registerationKey, interactionId, sessionId, saveInGarageOnly) {
-    document.dispatchEvent(new Event('websocket:registartionSuccess'));
-    console.warn('onRegisterationSuccessfull', registerationKey, interactionId, sessionId, saveInGarageOnly);
-    CXI.session = sessionId;
-    CXI.interaction = interactionId;
-  }
-
-  onRegisterationFail(registerationKey, failedReason) {
-    console.warn('onRegisterationFail', registerationKey, failedReason);
-    this.sessionId = null;
-    this.interactionId = null;
-  }
-
-  onOfferReceive(interactionId, senderDetails) {
-    console.warn('onOfferReceive', interactionId, senderDetails);
-  }
-
-  onOfferRejected(interactionId, sessionId, rejectedReason) {
-    console.warn('onOfferRejected', interactionId, sessionId, rejectedReason);
-  }
-
-  onClientSessionJoin(sessionId, clientDetails) {
-    console.warn('onClientSessionJoin', sessionId, clientDetails);
-  }
-
-  onClientSessionLeave(sessionId, clientId) {
-    console.warn('onClientSessionLeave', sessionId, clientId);
-  }
-
-  onAnswerReceive(interactionId, sessionId, supportedBrokerType, brokerConf) {
-    console.warn('onAnswerReceive', interactionId, sessionId, supportedBrokerType, brokerConf);
-  }
-
-  onDisconnect(event) {
-    console.warn('onDisconnect', event)
-  }
-
-  onMessageReceive(chatMessage) {
-    console.warn('onMessageReceive', chatMessage);
-    _onMessageReceiveCallback(chatMessage);
-  }
-
-  onSeakMessage(chatMessage) {
-    console.warn('onSeakMessage', chatMessage);
-  }
-
-  onSessionClose(data) {
-    const messageNode = document.getElementById("messageList");
-    while (messageNode.lastElementChild) {
-      messageNode.removeChild(messageNode.lastElementChild);
-    }
-    console.warn('onSessionClose', data);
-  }
-
-  ack(messageId, ackResType, error) {
-    console.warn('ack', messageId, ackResType, error);
-  }
-
-  onConnect(event) {
-    console.warn('onConnect', event);
-    document.dispatchEvent(new Event('websocket:agentConnected', event));
-  }
-
-  onSessionSync(message) {
-    console.warn('onSessionSync', message);
-  }
-
-  onError(event) {
-    console.warn('onError', event);
-  }
-
-  onIPAddressReceive(ipAdress) {
-    console.warn('onIPAddressReceive', ipAdress);
-  }
-
-  onSessionTransferOffered(data) {
-    console.warn('onSessionTransferOffered', data);
-  }
-
-  onSessionTransferAccepted(sessionId, agentId) {
-    console.warn('onSessionTransferAccepted', sessionId, agentId);
-  }
-
-  onSessionTransferFailed(sessionId, failedReason) {
-    console.warn('onSessionTransferFailed', sessionId, failedReason);
-  }
-
-  onSessionTransferCompleate(sessionId, transferTo, transferToDetails) {
-    console.warn('onSessionTransferCompleate', sessionId, transferTo, transferToDetails);
-  }
-
-  escalateToAgent(sessionId, customerPayload) {
-    console.warn('escalateToAgent', sessionId, customerPayload);
-  }
-
-  onSuperVisorReQueueSuccess(sessionId, queueName) {
-    console.warn('onSuperVisorReQueueSuccess', sessionId, queueName);
-  }
-  onSuperVisorReQueueFailed(sessionId, queueName, failedReason) {
-    console.warn('onSuperVisorReQueueFailed', sessionId, queueName, failedReason);
-  }
-
-  onSuperVisorCherryPickSuccess(sessionId, agentId) {
-    console.warn('onSuperVisorCherryPickSuccess', sessionId, agentId);
-  }
-  onSuperVisorCherryPickFailed(sessionId, agentId, failedReason) {
-    console.warn('onSuperVisorCherryPickFailed', sessionId, agentId, failedReason);
-  }
-}
-
-class WebRtcMessageBrokerIntercepter {
-  onRegistartionSuccess(template) {
-    console.warn('onRegistartionSuccess', template)
-  }
-
-  onCallAccepted(sessionId) {
-    console.warn('onCallAccepted', sessionId, CXI.session);
-  }
-
-  onCallRejected(sessionId, rejectedReason) {
-    console.warn('onCallRejected', sessionId, rejectedReason)
-  }
-
-  onSessionClosed(sessionId) {
-    console.warn('onSessionClosed', CXI.session, sessionId);
-    CXI.webRtc.endCall(sessionId, CXI.interaction, CXI.interaction);
-  }
-  
-  mediaSessionStarted(interactionId, sessionId, mediaConstraints) {
-    document.dispatchEvent(new Event('webrtc:mediaSessionStarted'));
-    console.warn('mediaSessionStarted', interactionId, mediaConstraints, sessionId);
-  }
-
-  onLocalStreamStarted() {
-    console.warn('onLocalStreamStarted');
-  }
-
-  onLocalStreamDisconnected() {
-    console.warn('onLocalStreamDisconnected');
-  }
-
-  onRemoteStreamStarted() {
-    console.warn('onRemoteStreamStarted');
-  }
-  onRemoteStreamDisconnected() {
-    console.warn('onRemoteStreamDisconnected');
-  }
-}
-
-__webpack_require__(/*! cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle */ "../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
-
-__webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-broker_client_websocket_StandardWSMessageBrokerClient_js").then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient */ "../cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient.js")]; (function (data) {
-  CXI.initWebsocket = function (customerName = 'Customer') {
-    CXI.webSocket = new data.StanderdWSMessageBrokerClient(customerName, { fullyQualifiedURL: 'wss://test.cxinfinity.novelvox.net/signalling/' }, new WebChatMessageBrokerIntercepter());
-    document.dispatchEvent(new Event('websocket:ready'));
-  }
-  document.dispatchEvent(new Event('websocket:initReady'));
-}).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
-
-__webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-broker-webrtc_client_StandardWebRTCMessageBrokerClient_js").then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient */ "../cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js")]; (function (data) {
-  CXI.initWebRtc = function() {
-    CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(CXI.webSocket, new WebRtcMessageBrokerIntercepter(), false);
-    document.dispatchEvent(new Event('webrtc:ready'));
-  }
-}).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CXI);
-
-
-/***/ }),
-
-/***/ "./www/ui.js":
-/*!*******************!*\
-  !*** ./www/ui.js ***!
-  \*******************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-const ui = `<div id="bottar-ui">
-  <style>
-    bottar-ui {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: space;
-      font-family: "proxima-nova", "Source Sans Pro", sans-serif;
-      font-size: 1em;
-      letter-spacing: 0.1px;
-      color: #32465a;
-      text-rendering: optimizeLegibility;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    #frame {
-      width: 100%;
-      height: 100vh;
-      background: #E6EAEA;
-    }
-    @media screen and (max-width: 360px) {
-      #frame {
-        width: 100%;
-        height: 100vh;
-      }
-    }
-    #frame .content {
-      float: right;
-      width: 60%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-    }
-    @media screen and (max-width: 735px) {
-      #frame .content {
-        width: 100%;
-        min-width: 300px !important;
-      }
-    }
-    @media screen and (min-width: 900px) {
-      #frame .content {
-        width: 100%;
-      }
-    }
-    #frame .content .contact-profile {
-      width: 100%;
-      height: 60px;
-      line-height: 60px;
-      background: #f5f5f5;
-    }
-    #frame .content .contact-profile img {
-      width: 40px;
-      border-radius: 50%;
-      float: left;
-      margin: 9px 12px 0 9px;
-    }
-    #frame .content .contact-profile p {
-      float: left;
-      margin-left: 20px;
-    }
-    #frame .content .contact-profile .actions {
-      display: none;
-      float: right;
-    }
-    #frame .content .contact-profile .actions i {
-      margin-left: 14px;
-      cursor: pointer;
-    }
-    #frame .content .contact-profile .actions i:nth-last-child(1) {
-      margin-right: 20px;
-    }
-    #frame .content .contact-profile .actions i:hover {
-      color: #435f7a;
-    }
-    #frame .content .messages {
-      width: 100%;
-      height: auto;
-      min-height: calc(100% - 93px);
-      max-height: calc(100% - 93px);
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
-    @media screen and (max-width: 735px) {
-      #frame .content .messages {
-        max-height: calc(100% - 105px);
-      }
-    }
-    #frame .content .messages::-webkit-scrollbar {
-      width: 8px;
-      background: transparent;
-    }
-    #frame .content .messages::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-    #frame .content .messages ul li {
-      display: inline-block;
-      clear: both;
-      float: left;
-      width: calc(100% - 25px);
-      font-size: 0.9em;
-    }
-    #frame .content .messages ul li:nth-last-child(1) {
-      margin-bottom: 20px;
-    }
-    #frame .content .messages ul li.replies img {
-      margin: 6px 8px 0 0;
-    }
-    #frame .content .messages ul li.replies p {
-      background: #435f7a;
-      color: #f5f5f5;
-    }
-    #frame .content .messages ul li.sent img {
-      float: right;
-      margin: 6px 0 0 8px;
-    }
-    #frame .content .messages ul li.sent p {
-      background: #f5f5f5;
-      float: right;
-    }
-    #frame .content .messages ul li img {
-      width: 22px;
-      border-radius: 50%;
-      float: left;
-    }
-    #frame .content .messages ul li p {
-      display: inline-block;
-      padding: 10px 15px;
-      border-radius: 20px;
-      max-width: 205px;
-      line-height: 130%;
-    }
-    @media screen and (min-width: 735px) {
-      #frame .content .messages ul li p {
-        max-width: 300px;
-      }
-    }
-    #frame .content .message-input {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      z-index: 99;
-    }
-    #frame .content .message-input .wrap {
-      position: relative;
-    }
-    #frame .content .message-input .wrap input {
-      font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
-      float: left;
-      border: none;
-      width: calc(100% - 50px);
-      padding: 11px 32px 10px 8px;
-      font-size: 0.8em;
-      color: #32465a;
-    }
-    @media screen and (max-width: 735px) {
-      #frame .content .message-input .wrap input {
-        padding: 15px 32px 16px 8px;
-      }
-    }
-    #frame .content .message-input .wrap input:focus {
-      outline: none;
-    }
-    #frame .content .message-input .wrap .attachment {
-      position: absolute;
-      right: 60px;
-      z-index: 4;
-      margin-top: 10px;
-      font-size: 1.1em;
-      color: #435f7a;
-      opacity: .5;
-      cursor: pointer;
-    }
-    @media screen and (max-width: 735px) {
-      #frame .content .message-input .wrap .attachment {
-        margin-top: 17px;
-        right: 65px;
-      }
-    }
-    #frame .content .message-input .wrap .attachment:hover {
-      opacity: 1;
-    }
-    #frame .content .message-input .wrap button {
-      float: right;
-      border: none;
-      width: 50px;
-      padding: 12px 0;
-      cursor: pointer;
-      background: #32465a;
-      color: #f5f5f5;
-    }
-    @media screen and (max-width: 735px) {
-      #frame .content .message-input .wrap button {
-        padding: 16px 0;
-      }
-    }
-    #frame .content .message-input .wrap button:hover {
-      background: #435f7a;
-    }
-    #frame .content .message-input .wrap button:focus {
-      outline: none;
-    }
-
-    #cxi-media-container {
-      display: none;
-    }
-
-    #videoremote0 {
-      width: 100vw;
-      height: 100vh;
-      position: absolute;
-      text-align: center;
-    }
-
-    #videolocal {
-      width: 30%;
-      height: 25%;
-      position: absolute;
-      top: 3%;
-      right: 6%;
-    }
-
-    video {
-      object-fit: cover;
-      object-position: center center;
-    }
-
-    .end-call-button {
-      color: white;
-      background: #d9381e;
-      position: absolute;
-      bottom: 6%;
-      right: calc(50% - 35px);
-      border-radius: 50%;
-      border: 1px solid red;
-    }
-
-    .end-call-button i {
-      padding: 15px;
-      font-size: 30px;
-    }
-  </style>
-  
-  <div id="frame">
-    <div class="content">
-      <div class="contact-profile">
-        <p class="agent">Agent 007</p>
-        <div class="actions">
-          <i class="fa fa-video-camera" aria-hidden="true"></i>
-        </div>
-      </div>
-      <div class="messages">
-        <ul>
-        </ul>
-      </div>
-      <div class="message-input">
-        <div class="wrap">
-        <input type="text" placeholder="Write your message..." />
-        <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="cxi-media-container">
-    <div id="videoremote0"></div>
-    <div id="videolocal"></div>
-    <button class="end-call-button">
-      <i class="fa fa-phone" aria-hidden="true"></i>
-    </button>
-  </div>
-
-
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="https://use.typekit.net/hoy3lrg.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
-</div>`;
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ui);
-
-
-/***/ }),
-
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js":
-/*!*************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js ***!
-  \*************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js":
+/*!************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js ***!
+  \************************************************************************************************/
 /***/ (function(module) {
 
 
@@ -4281,6 +3764,523 @@ OTHER DEALINGS IN THE SOFTWARE.
 })));
 
 
+/***/ }),
+
+/***/ "./www/bottar-config.js":
+/*!******************************!*\
+  !*** ./www/bottar-config.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const config = {
+  renderEvent: 'bottar:render',
+  color: '...',
+  etc: '...'
+}
+
+if (!window.bottar) {
+  window.bottar = {
+    config : config
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (config);
+
+
+/***/ }),
+
+/***/ "./www/cxi.js":
+/*!********************!*\
+  !*** ./www/cxi.js ***!
+  \********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+let _onMessageReceiveCallback = null;
+
+const CXI = {
+  onMessageReceive: function(callback) {
+    _onMessageReceiveCallback = callback;
+  },
+  session: undefined,
+  interaction: undefined
+};
+
+class WebChatMessageBrokerIntercepter {
+  onRegisterationSuccessfull(registerationKey, interactionId, sessionId, saveInGarageOnly) {
+    document.dispatchEvent(new Event('websocket:registartionSuccess'));
+    console.warn('onRegisterationSuccessfull', registerationKey, interactionId, sessionId, saveInGarageOnly);
+    CXI.session = sessionId;
+    CXI.interaction = interactionId;
+  }
+
+  onRegisterationFail(registerationKey, failedReason) {
+    console.warn('onRegisterationFail', registerationKey, failedReason);
+    this.sessionId = null;
+    this.interactionId = null;
+  }
+
+  onOfferReceive(interactionId, senderDetails) {
+    console.warn('onOfferReceive', interactionId, senderDetails);
+  }
+
+  onOfferRejected(interactionId, sessionId, rejectedReason) {
+    console.warn('onOfferRejected', interactionId, sessionId, rejectedReason);
+  }
+
+  onClientSessionJoin(sessionId, clientDetails) {
+    console.warn('onClientSessionJoin', sessionId, clientDetails);
+  }
+
+  onClientSessionLeave(sessionId, clientId) {
+    console.warn('onClientSessionLeave', sessionId, clientId);
+  }
+
+  onAnswerReceive(interactionId, sessionId, supportedBrokerType, brokerConf) {
+    console.warn('onAnswerReceive', interactionId, sessionId, supportedBrokerType, brokerConf);
+  }
+
+  onDisconnect(event) {
+    console.warn('onDisconnect', event)
+  }
+
+  onMessageReceive(chatMessage) {
+    console.warn('onMessageReceive', chatMessage);
+    _onMessageReceiveCallback(chatMessage);
+  }
+
+  onSeakMessage(chatMessage) {
+    console.warn('onSeakMessage', chatMessage);
+  }
+
+  onSessionClose(data) {
+    const messageNode = document.getElementById("messageList");
+    while (messageNode.lastElementChild) {
+      messageNode.removeChild(messageNode.lastElementChild);
+    }
+    console.warn('onSessionClose', data);
+  }
+
+  ack(messageId, ackResType, error) {
+    console.warn('ack', messageId, ackResType, error);
+  }
+
+  onConnect(event) {
+    console.warn('onConnect', event);
+    document.dispatchEvent(new Event('websocket:agentConnected', event));
+  }
+
+  onSessionSync(message) {
+    console.warn('onSessionSync', message);
+  }
+
+  onError(event) {
+    console.warn('onError', event);
+  }
+
+  onIPAddressReceive(ipAdress) {
+    console.warn('onIPAddressReceive', ipAdress);
+  }
+
+  onSessionTransferOffered(data) {
+    console.warn('onSessionTransferOffered', data);
+  }
+
+  onSessionTransferAccepted(sessionId, agentId) {
+    console.warn('onSessionTransferAccepted', sessionId, agentId);
+  }
+
+  onSessionTransferFailed(sessionId, failedReason) {
+    console.warn('onSessionTransferFailed', sessionId, failedReason);
+  }
+
+  onSessionTransferCompleate(sessionId, transferTo, transferToDetails) {
+    console.warn('onSessionTransferCompleate', sessionId, transferTo, transferToDetails);
+  }
+
+  escalateToAgent(sessionId, customerPayload) {
+    console.warn('escalateToAgent', sessionId, customerPayload);
+  }
+
+  onSuperVisorReQueueSuccess(sessionId, queueName) {
+    console.warn('onSuperVisorReQueueSuccess', sessionId, queueName);
+  }
+  onSuperVisorReQueueFailed(sessionId, queueName, failedReason) {
+    console.warn('onSuperVisorReQueueFailed', sessionId, queueName, failedReason);
+  }
+
+  onSuperVisorCherryPickSuccess(sessionId, agentId) {
+    console.warn('onSuperVisorCherryPickSuccess', sessionId, agentId);
+  }
+  onSuperVisorCherryPickFailed(sessionId, agentId, failedReason) {
+    console.warn('onSuperVisorCherryPickFailed', sessionId, agentId, failedReason);
+  }
+}
+
+class WebRtcMessageBrokerIntercepter {
+  onRegistartionSuccess(template) {
+    console.warn('onRegistartionSuccess', template)
+  }
+
+  onCallAccepted(sessionId) {
+    console.warn('onCallAccepted', sessionId, CXI.session);
+  }
+
+  onCallRejected(sessionId, rejectedReason) {
+    console.warn('onCallRejected', sessionId, rejectedReason)
+  }
+
+  onSessionClosed(sessionId) {
+    console.warn('onSessionClosed', CXI.session, sessionId);
+    CXI.webRtc.endCall(sessionId, CXI.interaction, CXI.interaction);
+  }
+  
+  mediaSessionStarted(interactionId, sessionId, mediaConstraints) {
+    document.dispatchEvent(new Event('webrtc:mediaSessionStarted'));
+    console.warn('mediaSessionStarted', interactionId, mediaConstraints, sessionId);
+  }
+
+  onLocalStreamStarted() {
+    console.warn('onLocalStreamStarted');
+  }
+
+  onLocalStreamDisconnected() {
+    console.warn('onLocalStreamDisconnected');
+  }
+
+  onRemoteStreamStarted() {
+    console.warn('onRemoteStreamStarted');
+  }
+  onRemoteStreamDisconnected() {
+    console.warn('onRemoteStreamDisconnected');
+  }
+}
+
+__webpack_require__(/*! ../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle */ "./cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
+
+__webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-broker_client_websocket_StandardWSMessageBrokerClient_js").then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ../cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient */ "./cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient.js")]; (function (data) {
+  CXI.initWebsocket = function (customerName = 'Customer') {
+    CXI.webSocket = new data.StanderdWSMessageBrokerClient(customerName, { fullyQualifiedURL: 'wss://test.cxinfinity.novelvox.net/signalling/' }, new WebChatMessageBrokerIntercepter());
+    document.dispatchEvent(new Event('websocket:ready'));
+  }
+  document.dispatchEvent(new Event('websocket:initReady'));
+}).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
+
+__webpack_require__.e(/*! AMD require */ "cxi-message-broker-client_message-broker-webrtc_client_StandardWebRTCMessageBrokerClient_js").then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(/*! ../cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient */ "./cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js")]; (function (data) {
+  CXI.initWebRtc = function() {
+    CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(CXI.webSocket, new WebRtcMessageBrokerIntercepter(), false);
+    document.dispatchEvent(new Event('webrtc:ready'));
+  }
+}).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__);}).catch(__webpack_require__.oe);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CXI);
+
+
+/***/ }),
+
+/***/ "./www/ui.js":
+/*!*******************!*\
+  !*** ./www/ui.js ***!
+  \*******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const ui = `<div id="bottar-ui">
+  <style>
+    bottar-ui {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: space;
+      font-family: "proxima-nova", "Source Sans Pro", sans-serif;
+      font-size: 1em;
+      letter-spacing: 0.1px;
+      color: #32465a;
+      text-rendering: optimizeLegibility;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #frame {
+      width: 100%;
+      height: 100vh;
+      background: #E6EAEA;
+    }
+    @media screen and (max-width: 360px) {
+      #frame {
+        width: 100%;
+        height: 100vh;
+      }
+    }
+    #frame .content {
+      float: right;
+      width: 60%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    @media screen and (max-width: 735px) {
+      #frame .content {
+        width: 100%;
+        min-width: 300px !important;
+      }
+    }
+    @media screen and (min-width: 900px) {
+      #frame .content {
+        width: 100%;
+      }
+    }
+    #frame .content .contact-profile {
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      background: #f5f5f5;
+    }
+    #frame .content .contact-profile img {
+      width: 40px;
+      border-radius: 50%;
+      float: left;
+      margin: 9px 12px 0 9px;
+    }
+    #frame .content .contact-profile p {
+      float: left;
+      margin-left: 20px;
+    }
+    #frame .content .contact-profile .actions {
+      display: none;
+      float: right;
+    }
+    #frame .content .contact-profile .actions i {
+      margin-left: 14px;
+      cursor: pointer;
+    }
+    #frame .content .contact-profile .actions i:nth-last-child(1) {
+      margin-right: 20px;
+    }
+    #frame .content .contact-profile .actions i:hover {
+      color: #435f7a;
+    }
+    #frame .content .messages {
+      width: 100%;
+      height: auto;
+      min-height: calc(100% - 93px);
+      max-height: calc(100% - 93px);
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+    @media screen and (max-width: 735px) {
+      #frame .content .messages {
+        max-height: calc(100% - 105px);
+      }
+    }
+    #frame .content .messages::-webkit-scrollbar {
+      width: 8px;
+      background: transparent;
+    }
+    #frame .content .messages::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    #frame .content .messages ul li {
+      display: inline-block;
+      clear: both;
+      float: left;
+      width: calc(100% - 25px);
+      font-size: 0.9em;
+    }
+    #frame .content .messages ul li:nth-last-child(1) {
+      margin-bottom: 20px;
+    }
+    #frame .content .messages ul li.replies img {
+      margin: 6px 8px 0 0;
+    }
+    #frame .content .messages ul li.replies p {
+      background: #435f7a;
+      color: #f5f5f5;
+    }
+    #frame .content .messages ul li.sent img {
+      float: right;
+      margin: 6px 0 0 8px;
+    }
+    #frame .content .messages ul li.sent p {
+      background: #f5f5f5;
+      float: right;
+    }
+    #frame .content .messages ul li img {
+      width: 22px;
+      border-radius: 50%;
+      float: left;
+    }
+    #frame .content .messages ul li p {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 205px;
+      line-height: 130%;
+    }
+    @media screen and (min-width: 735px) {
+      #frame .content .messages ul li p {
+        max-width: 300px;
+      }
+    }
+    #frame .content .message-input {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: 99;
+    }
+    #frame .content .message-input .wrap {
+      position: relative;
+    }
+    #frame .content .message-input .wrap input {
+      font-family: "proxima-nova",  "Source Sans Pro", sans-serif;
+      float: left;
+      border: none;
+      width: calc(100% - 50px);
+      padding: 11px 32px 10px 8px;
+      font-size: 0.8em;
+      color: #32465a;
+    }
+    @media screen and (max-width: 735px) {
+      #frame .content .message-input .wrap input {
+        padding: 15px 32px 16px 8px;
+      }
+    }
+    #frame .content .message-input .wrap input:focus {
+      outline: none;
+    }
+    #frame .content .message-input .wrap .attachment {
+      position: absolute;
+      right: 60px;
+      z-index: 4;
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #435f7a;
+      opacity: .5;
+      cursor: pointer;
+    }
+    @media screen and (max-width: 735px) {
+      #frame .content .message-input .wrap .attachment {
+        margin-top: 17px;
+        right: 65px;
+      }
+    }
+    #frame .content .message-input .wrap .attachment:hover {
+      opacity: 1;
+    }
+    #frame .content .message-input .wrap button {
+      float: right;
+      border: none;
+      width: 50px;
+      padding: 12px 0;
+      cursor: pointer;
+      background: #32465a;
+      color: #f5f5f5;
+    }
+    @media screen and (max-width: 735px) {
+      #frame .content .message-input .wrap button {
+        padding: 16px 0;
+      }
+    }
+    #frame .content .message-input .wrap button:hover {
+      background: #435f7a;
+    }
+    #frame .content .message-input .wrap button:focus {
+      outline: none;
+    }
+
+    #cxi-media-container {
+      display: none;
+    }
+
+    #videoremote0 {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      text-align: center;
+    }
+
+    #videolocal {
+      width: 30%;
+      height: 25%;
+      position: absolute;
+      top: 3%;
+      right: 6%;
+    }
+
+    video {
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .end-call-button {
+      color: white;
+      background: #d9381e;
+      position: absolute;
+      bottom: 6%;
+      right: calc(50% - 35px);
+      border-radius: 50%;
+      border: 1px solid red;
+    }
+
+    .end-call-button i {
+      padding: 15px;
+      font-size: 30px;
+    }
+  </style>
+  
+  <div id="frame">
+    <div class="content">
+      <div class="contact-profile">
+        <p class="agent">Agent 007</p>
+        <div class="actions">
+          <i class="fa fa-video-camera" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="messages">
+        <ul>
+        </ul>
+      </div>
+      <div class="message-input">
+        <div class="wrap">
+        <input type="text" placeholder="Write your message..." />
+        <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cxi-media-container">
+    <div id="videoremote0"></div>
+    <div id="videolocal"></div>
+    <button class="end-call-button">
+      <i class="fa fa-phone" aria-hidden="true"></i>
+    </button>
+  </div>
+
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css'>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.typekit.net/hoy3lrg.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+</div>`;
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ui);
+
+
 /***/ })
 
 /******/ 	});
@@ -4655,7 +4655,6 @@ document.addEventListener('webrtc:ready', function () {
       },
       (result) => {console.log('Permissions denied...')}
     );
-
   });
 });
 
@@ -4663,13 +4662,12 @@ $('body').on('click', '.end-call-button', function () {
   _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].webRtc.endCall(_cxi__WEBPACK_IMPORTED_MODULE_1__["default"].session, _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction, _cxi__WEBPACK_IMPORTED_MODULE_1__["default"].interaction);
   $('#cxi-media-container').hide();
   $('#frame').show();
-  return true;
 });
 
 document.addEventListener('webrtc:mediaSessionStarted', function() {
   $('#cxi-media-container').show();
   $('#frame').hide();
-})
+});
 
 })();
 

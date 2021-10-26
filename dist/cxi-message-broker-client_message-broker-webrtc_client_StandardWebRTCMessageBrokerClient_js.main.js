@@ -1,12 +1,12 @@
 (self["webpackChunkbottar_ai"] = self["webpackChunkbottar_ai"] || []).push([["cxi-message-broker-client_message-broker-webrtc_client_StandardWebRTCMessageBrokerClient_js"],{
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/client/AbstractWebRTCMessageBrokerClient.js":
-/*!******************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/client/AbstractWebRTCMessageBrokerClient.js ***!
-  \******************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/client/AbstractWebRTCMessageBrokerClient.js":
+/*!*****************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/client/AbstractWebRTCMessageBrokerClient.js ***!
+  \*****************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../interceptor/WebRTCBrokerInterceptorImpl */ "../cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorImpl.js"), __webpack_require__(/*! ./RegistrationHolder */ "../cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js"), __webpack_require__(/*! ./../../message-broker/client/websocket/BrokerMessage */ "../cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js"), __webpack_require__(/*! ./../../message-broker/client/ClientTypes */ "../cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ./../janus/JanusHandler */ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js"), __webpack_require__(/*! ./../interceptor/WebRTCBrokerInterceptorHandler */ "../cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js"), __webpack_require__(/*! ./rest/HoldAuditTrailRestClient */ "../cxi-message-broker-client/message-broker-webrtc/client/rest/HoldAuditTrailRestClient.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, WebRTCBrokerInterceptorImpl_1, RegistrationHolder_1, BrokerMessage_1, ClientTypes_1, JanusHandler_1, WebRTCBrokerInterceptorHandler_1, HoldAuditTrailRestClient_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../interceptor/WebRTCBrokerInterceptorImpl */ "./cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorImpl.js"), __webpack_require__(/*! ./RegistrationHolder */ "./cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js"), __webpack_require__(/*! ./../../message-broker/client/websocket/BrokerMessage */ "./cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js"), __webpack_require__(/*! ./../../message-broker/client/ClientTypes */ "./cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ./../janus/JanusHandler */ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js"), __webpack_require__(/*! ./../interceptor/WebRTCBrokerInterceptorHandler */ "./cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js"), __webpack_require__(/*! ./rest/HoldAuditTrailRestClient */ "./cxi-message-broker-client/message-broker-webrtc/client/rest/HoldAuditTrailRestClient.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, WebRTCBrokerInterceptorImpl_1, RegistrationHolder_1, BrokerMessage_1, ClientTypes_1, JanusHandler_1, WebRTCBrokerInterceptorHandler_1, HoldAuditTrailRestClient_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.AbstractWebRTCMessageBrokerClient = void 0;
@@ -111,10 +111,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js":
-/*!***************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js ***!
-  \***************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js":
+/*!**************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js ***!
+  \**************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -163,13 +163,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js":
-/*!******************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js ***!
-  \******************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js":
+/*!*****************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient.js ***!
+  \*****************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./AbstractWebRTCMessageBrokerClient */ "../cxi-message-broker-client/message-broker-webrtc/client/AbstractWebRTCMessageBrokerClient.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, AbstractWebRTCMessageBrokerClient_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./AbstractWebRTCMessageBrokerClient */ "./cxi-message-broker-client/message-broker-webrtc/client/AbstractWebRTCMessageBrokerClient.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, AbstractWebRTCMessageBrokerClient_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.StandardWebRTCMessageBrokerClient = void 0;
@@ -185,13 +185,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/client/rest/HoldAuditTrailRestClient.js":
-/*!**************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/client/rest/HoldAuditTrailRestClient.js ***!
-  \**************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/client/rest/HoldAuditTrailRestClient.js":
+/*!*************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/client/rest/HoldAuditTrailRestClient.js ***!
+  \*************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../../janus/JanusHandler */ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, JanusHandler_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../../janus/JanusHandler */ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, JanusHandler_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.HoldAuditTrailRestClient = void 0;
@@ -259,10 +259,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/client/rest/RecordingAuditTrailRestClient.js":
-/*!*******************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/client/rest/RecordingAuditTrailRestClient.js ***!
-  \*******************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/client/rest/RecordingAuditTrailRestClient.js":
+/*!******************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/client/rest/RecordingAuditTrailRestClient.js ***!
+  \******************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -295,13 +295,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js":
-/*!********************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js ***!
-  \********************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js":
+/*!*******************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js ***!
+  \*******************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../janus/JanusHandler */ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js"), __webpack_require__(/*! ./../client/RegistrationHolder */ "../cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, JanusHandler_1, RegistrationHolder_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../janus/JanusHandler */ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js"), __webpack_require__(/*! ./../client/RegistrationHolder */ "./cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, JanusHandler_1, RegistrationHolder_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.WebRTCBrokerInterceptorHandler = void 0;
@@ -342,13 +342,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorImpl.js":
-/*!*****************************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorImpl.js ***!
-  \*****************************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorImpl.js":
+/*!****************************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorImpl.js ***!
+  \****************************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../../message-broker/client/ClientTypes */ "../cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ./../client/RegistrationHolder */ "../cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js"), __webpack_require__(/*! ./WebRTCBrokerInterceptorHandler */ "../cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1, RegistrationHolder_1, WebRTCBrokerInterceptorHandler_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../../message-broker/client/ClientTypes */ "./cxi-message-broker-client/message-broker/client/ClientTypes.js"), __webpack_require__(/*! ./../client/RegistrationHolder */ "./cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js"), __webpack_require__(/*! ./WebRTCBrokerInterceptorHandler */ "./cxi-message-broker-client/message-broker-webrtc/interceptor/WebRTCBrokerInterceptorHandler.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1, RegistrationHolder_1, WebRTCBrokerInterceptorHandler_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.WebRTCBrokerInterceptorImpl = void 0;
@@ -465,10 +465,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/Event.js":
-/*!*************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/Event.js ***!
-  \*************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/Event.js":
+/*!************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/Event.js ***!
+  \************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -496,10 +496,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/Feed.js":
-/*!************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/Feed.js ***!
-  \************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/Feed.js":
+/*!***********************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/Feed.js ***!
+  \***********************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -533,10 +533,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandleHelper.js":
-/*!*************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandleHelper.js ***!
-  \*************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandleHelper.js":
+/*!************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandleHelper.js ***!
+  \************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -630,10 +630,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js":
-/*!********************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js ***!
-  \********************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js":
+/*!*******************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandler.js ***!
+  \*******************************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/** Unless otherwise licensed, the software is our proprietary property and all source code, database,
@@ -646,7 +646,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/** Unless other
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../client/RegistrationHolder */ "../cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js"), __webpack_require__(/*! ./../client/rest/RecordingAuditTrailRestClient */ "../cxi-message-broker-client/message-broker-webrtc/client/rest/RecordingAuditTrailRestClient.js"), __webpack_require__(/*! ./JanusWrapper */ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusWrapper.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, RegistrationHolder_1, RecordingAuditTrailRestClient_1, JanusWrapper_1) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./../client/RegistrationHolder */ "./cxi-message-broker-client/message-broker-webrtc/client/RegistrationHolder.js"), __webpack_require__(/*! ./../client/rest/RecordingAuditTrailRestClient */ "./cxi-message-broker-client/message-broker-webrtc/client/rest/RecordingAuditTrailRestClient.js"), __webpack_require__(/*! ./JanusWrapper */ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusWrapper.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, RegistrationHolder_1, RecordingAuditTrailRestClient_1, JanusWrapper_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.JanusHandler = void 0;
@@ -1035,16 +1035,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusWrapper.js":
-/*!********************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/JanusWrapper.js ***!
-  \********************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusWrapper.js":
+/*!*******************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/JanusWrapper.js ***!
+  \*******************************************************************************/
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./JanusHandleHelper */ "../cxi-message-broker-client/message-broker-webrtc/janus/JanusHandleHelper.js"), __webpack_require__(/*! ./VideoClient */ "../cxi-message-broker-client/message-broker-webrtc/janus/VideoClient.js"), __webpack_require__(/*! ./Feed */ "../cxi-message-broker-client/message-broker-webrtc/janus/Feed.js"), __webpack_require__(/*! ./Event */ "../cxi-message-broker-client/message-broker-webrtc/janus/Event.js"), __webpack_require__(/*! ./Room */ "../cxi-message-broker-client/message-broker-webrtc/janus/Room.js"), __webpack_require__(/*! ./Utils */ "../cxi-message-broker-client/message-broker-webrtc/janus/Utils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, JanusHandleHelper_1, VideoClient_1, Feed_1, Event_1, Room_1, Utils_1) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ./JanusHandleHelper */ "./cxi-message-broker-client/message-broker-webrtc/janus/JanusHandleHelper.js"), __webpack_require__(/*! ./VideoClient */ "./cxi-message-broker-client/message-broker-webrtc/janus/VideoClient.js"), __webpack_require__(/*! ./Feed */ "./cxi-message-broker-client/message-broker-webrtc/janus/Feed.js"), __webpack_require__(/*! ./Event */ "./cxi-message-broker-client/message-broker-webrtc/janus/Event.js"), __webpack_require__(/*! ./Room */ "./cxi-message-broker-client/message-broker-webrtc/janus/Room.js"), __webpack_require__(/*! ./Utils */ "./cxi-message-broker-client/message-broker-webrtc/janus/Utils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, JanusHandleHelper_1, VideoClient_1, Feed_1, Event_1, Room_1, Utils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     JanusHandleHelper_1 = __importDefault(JanusHandleHelper_1);
@@ -1061,7 +1061,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __importDefa
     * well as in foreign jurisdictions and international conventions.
     */
     // Janus is the official janus.js bundle and JanusJS is the namespace that declares the Janus typescript types
-    const Janus = __webpack_require__(/*! ./third-party/janus/janusBundle */ "../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
+    const Janus = __webpack_require__(/*! ./third-party/janus/janusBundle */ "./cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
     /**
      * The JanusWrapper is a class that wraps janus.js and simplifies its usage with some exposed functions for videochat up to 3 participants
      */
@@ -2141,10 +2141,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var __importDefa
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/Room.js":
-/*!************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/Room.js ***!
-  \************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/Room.js":
+/*!***********************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/Room.js ***!
+  \***********************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -2157,7 +2157,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     * trademark laws and various other intellectual property rights and unfair competition laws in domestic as
     * well as in foreign jurisdictions and international conventions.
     */
-    const Janus = __webpack_require__(/*! ./third-party/janus/janusBundle */ "../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
+    const Janus = __webpack_require__(/*! ./third-party/janus/janusBundle */ "./cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
     class Room {
         dispatcherServer;
         roomId;
@@ -2241,10 +2241,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/Utils.js":
-/*!*************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/Utils.js ***!
-  \*************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/Utils.js":
+/*!************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/Utils.js ***!
+  \************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -2286,10 +2286,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker-webrtc/janus/VideoClient.js":
-/*!*******************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker-webrtc/janus/VideoClient.js ***!
-  \*******************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker-webrtc/janus/VideoClient.js":
+/*!******************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker-webrtc/janus/VideoClient.js ***!
+  \******************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -2302,7 +2302,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
     * trademark laws and various other intellectual property rights and unfair competition laws in domestic as
     * well as in foreign jurisdictions and international conventions.
     */
-    const Janus = __webpack_require__(/*! ./third-party/janus/janusBundle */ "../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
+    const Janus = __webpack_require__(/*! ./third-party/janus/janusBundle */ "./cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle.js");
     class VideoClient {
         clientId;
         username;
@@ -2433,10 +2433,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/client/ClientTypes.js":
-/*!*************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/client/ClientTypes.js ***!
-  \*************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/client/ClientTypes.js":
+/*!************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/client/ClientTypes.js ***!
+  \************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports) {
@@ -2563,13 +2563,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js":
-/*!*************************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js ***!
-  \*************************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js":
+/*!************************************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/client/websocket/BrokerMessage.js ***!
+  \************************************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../../utils/ClientUtils */ "../cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientUtils_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../../utils/ClientUtils */ "./cxi-message-broker-client/message-broker/utils/ClientUtils.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientUtils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.BrokerMessage = void 0;
@@ -2609,13 +2609,13 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_
 
 /***/ }),
 
-/***/ "../cxi-message-broker-client/message-broker/utils/ClientUtils.js":
-/*!************************************************************************!*\
-  !*** ../cxi-message-broker-client/message-broker/utils/ClientUtils.js ***!
-  \************************************************************************/
+/***/ "./cxi-message-broker-client/message-broker/utils/ClientUtils.js":
+/*!***********************************************************************!*\
+  !*** ./cxi-message-broker-client/message-broker/utils/ClientUtils.js ***!
+  \***********************************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../client/ClientTypes */ "../cxi-message-broker-client/message-broker/client/ClientTypes.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1) {
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(/*! ../client/ClientTypes */ "./cxi-message-broker-client/message-broker/client/ClientTypes.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function (require, exports, ClientTypes_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", ({ value: true }));
     exports.DS = exports.ClientUtils = void 0;

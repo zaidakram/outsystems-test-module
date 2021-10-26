@@ -158,9 +158,9 @@ class WebRtcMessageBrokerIntercepter {
   }
 }
 
-require('cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle');
+require('../cxi-message-broker-client/message-broker-webrtc/janus/third-party/janus/janusBundle');
 
-require(['cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient'], function (data) {
+require(['../cxi-message-broker-client/message-broker/client/websocket/StandardWSMessageBrokerClient'], function (data) {
   CXI.initWebsocket = function (customerName = 'Customer') {
     CXI.webSocket = new data.StanderdWSMessageBrokerClient(customerName, { fullyQualifiedURL: 'wss://test.cxinfinity.novelvox.net/signalling/' }, new WebChatMessageBrokerIntercepter());
     document.dispatchEvent(new Event('websocket:ready'));
@@ -168,7 +168,7 @@ require(['cxi-message-broker-client/message-broker/client/websocket/StandardWSMe
   document.dispatchEvent(new Event('websocket:initReady'));
 });
 
-require(['cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient'], function (data) {
+require(['../cxi-message-broker-client/message-broker-webrtc/client/StandardWebRTCMessageBrokerClient'], function (data) {
   CXI.initWebRtc = function() {
     CXI.webRtc = new data.StandardWebRTCMessageBrokerClient(CXI.webSocket, new WebRtcMessageBrokerIntercepter(), false);
     document.dispatchEvent(new Event('webrtc:ready'));
