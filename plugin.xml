@@ -3,7 +3,6 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="bottar-ai"
         version="1.0">
-
   <name>Bottar AI</name>
   <description>Cordova Plugin for bottar.ai</description>
   <license>MIT</license>
@@ -38,7 +37,6 @@
       </feature>
     </config-file>
   </platform>
-  
 </plugin>
 
 

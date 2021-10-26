@@ -111,7 +111,6 @@ document.addEventListener('webrtc:ready', function () {
       },
       (result) => {console.log('Permissions denied...')}
     );
-
   });
 });
 
@@ -124,4 +123,4 @@ $('body').on('click', '.end-call-button', function () {
 document.addEventListener('webrtc:mediaSessionStarted', function() {
   $('#cxi-media-container').show();
   $('#frame').hide();
-})
+});
