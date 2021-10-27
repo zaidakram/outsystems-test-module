@@ -2,6 +2,7 @@
 import * as config from './bottar-config';
 import CXI from './cxi';
 import ui from './ui';
+import $ from 'jquery';
 
 document.addEventListener("websocket:initReady", function () {
   CXI.initWebsocket('Zaid');
