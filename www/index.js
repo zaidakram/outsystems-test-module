@@ -86,7 +86,7 @@ document.addEventListener('websocket:agentConnected', function () {
 // Entry-point
 // Render the chat app...
 document.addEventListener(window.bottar.config.renderEvent, function () {
-  document.getElementById('main').innerHTML = ui;
+  document.getElementById('transitionContainer').innerHTML = ui;
 
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 });
