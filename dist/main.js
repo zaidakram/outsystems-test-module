@@ -15540,7 +15540,7 @@ document.addEventListener('websocket:agentConnected', function () {
 // Entry-point
 // Render the chat app...
 document.addEventListener(window.bottar.config.renderEvent, function () {
-  document.getElementById('main').innerHTML = _ui__WEBPACK_IMPORTED_MODULE_2__["default"];
+  document.getElementById('transitionContainer').innerHTML = _ui__WEBPACK_IMPORTED_MODULE_2__["default"];
 
   jquery__WEBPACK_IMPORTED_MODULE_3___default()(".messages").animate({ scrollTop: jquery__WEBPACK_IMPORTED_MODULE_3___default()(document).height() }, "fast");
 });
