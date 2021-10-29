@@ -20,11 +20,15 @@
     <clobbers target="window.plugins.k.webrtc.permission" />
   </js-module>
 
-  <hook type="after_plugin_add" src="scripts/setup-bottar.sh"></hook>
+  <!-- <hook type="after_plugin_add" src="scripts/setup-bottar.sh"></hook> -->
+  <asset src="dist/cxi-message-broker-client_message-broker-webrtc_client_StandardWebRTCMessageBrokerClient_js.main.js" target="scripts/cxi-message-broker-client_message-broker-webrtc_client_StandardWebRTCMessageBrokerClient_js.main.js" />
+  
+  <asset src="dist/cxi-message-broker-client_message-broker_client_websocket_StandardWSMessageBrokerClient_js.main.js" target="scripts/cxi-message-broker-client_message-broker_client_websocket_StandardWSMessageBrokerClient_js.main.js" />
 
   <!-- Android -->
   <platform name="android">
     <source-file src="src/android/KwebRTCPermission.java" target-dir="src/in/co/indusnet/cordova/plugins/webrtc/permission" />
+
     <config-file target="AndroidManifest.xml" parent="/*">
       <uses-permission android:name="android.permission.CAMERA" />
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
